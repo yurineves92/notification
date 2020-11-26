@@ -9,21 +9,21 @@ class Email
 {
     private $mail = \stdClass::class;
 
-    public function __construct()
+    public function __construct($smtpDebug, $host, $user, $pass, $smtpSecure, $port, $setFromEmail, $setFromName)
     {
         $this->mail = new PHPMailer(true);
-        $this->mail->SMTPDebug = 2;
+        $this->mail->SMTPDebug = $smtpDebug;
         $this->mail->isSMTP();
-        $this->mail->Host = 'smtp.sendgrid.net';
+        $this->mail->Host = $host;
         $this->mail->SMTPAuth = true;
-        $this->mail->Username = 'username';
-        $this->mail->Password = 'secret';
-        $this->mail->SMTPSecure = 'tls';
+        $this->mail->Username = $user;
+        $this->mail->Password = $pass;
+        $this->mail->SMTPSecure = $smtpSecure;
         $this->mail->CharSet = 'utf-8';
         $this->mail->setLanguage('br');
         $this->mail->isHTML(true);
-        $this->mail->Port = 587;
-        $this->mail->setFrom('yurineves92@gmail.com', 'Equipe Neves');
+        $this->mail->Port = $port;
+        $this->mail->setFrom($setFromEmail, $setFromName);
     }
 
     public function sendEmail($subject, $body, $replyEmail, $replyName, $addressEmail, $addressName)
