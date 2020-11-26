@@ -1,0 +1,21 @@
+{
+    "name": "yurineves/notification",
+    "description": "This is a libray that uses composer as the basic for generating email notifications",
+    "type": "libray",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yuri Neves",
+            "email": "yurineves92@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpmailer/phpmailer": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Notification\\": "_app"
+        }
+    }
+}
